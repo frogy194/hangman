@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Hangman
 {
@@ -6,7 +7,22 @@ namespace Hangman
     {
         static void Main(string[] args)
         {
-           Console.WriteLine("test program console");
+  
+                            
+    
+
+        
+           Score toAdd = Game.newGame();
+
+            Console.WriteLine(toAdd.ToString);
+            
+
+            
+
+
+        
+
+
         }
     }
 }

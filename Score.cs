@@ -24,8 +24,12 @@ public class Score
     public int getTime() {
         return timeOfGame;
     }
-    public int etLife() {
+    public int getLife() {
         return lifes;
+    }
+
+    public override string ToString() {
+        return playerNick + " " + dateOfGame + " " + timeOfGame + " " + lifes;
     }
 
     }
