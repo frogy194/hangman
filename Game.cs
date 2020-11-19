@@ -19,6 +19,7 @@ namespace Hangman
             bool[] hit = new bool[cityToGuess.Length];
             int gameEnd = 0;
             int guessingTries = 0;
+            int bonusForWholeWord = 0;
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
@@ -81,6 +82,7 @@ namespace Hangman
                     if (string.Equals(guessWord.ToUpper(), cityToGuess.ToUpper()))
                     {
                         guessingTries++;
+                        bonusForWholeWord = 10*lifes;
                         gameEnd = 1;
                     }
 
@@ -93,7 +95,7 @@ namespace Hangman
 
                 else if (string.Equals(guessWord.ToUpper(), "CHAR"))
                 {
-
+    // znaki kłopoty
                     Console.WriteLine("Type character");
                     guessChar = Console.ReadLine()[0];
                     int lifeCheck = 0;
@@ -133,7 +135,7 @@ namespace Hangman
 
             watch.Stop();
             TimeSpan ts = watch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds - bonusForWholeWord, ts.Milliseconds / 10);
             
             
             if (lifes == 0)
@@ -149,11 +151,18 @@ namespace Hangman
             }
 
             Console.WriteLine("What's your name");
-            string results = Console.ReadLine() + " " + DateTime.Now.ToString("MMM d ddd h:mm:ss tt") + " " + elapsedTime + " " + lifes + " lifes left";
+            string results = Console.ReadLine() + " " + DateTime.Now.ToString("MMM d ddd h:mm:ss tt") + " " + elapsedTime + " " + cityToGuess;
             Console.WriteLine("Thanks for playing");
 
-            return results;
+            if (lifes > 0) {
+               
+                return results;
+            } 
+            
+            else {
+            
+            return null;
         }
-
+        }
     }
 }
