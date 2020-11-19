@@ -14,7 +14,7 @@ namespace Hangman
         
            Score toAdd = Game.newGame();
 
-            Console.WriteLine(toAdd.ToString);
+            // Console.WriteLine(toAdd.ToString);
             
 
             
