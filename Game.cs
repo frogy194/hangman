@@ -4,7 +4,7 @@ namespace Hangman
 {
     public static class Game
     {
-        public static Score newGame()
+        public static string newGame(int lifes)
         {
 
 
@@ -18,9 +18,9 @@ namespace Hangman
             char guessChar;
             bool[] hit = new bool[cityToGuess.Length];
             int gameEnd = 0;
-            int lifes = 5;
             int guessingTries = 0;
             var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
 
 
             do
@@ -132,6 +132,10 @@ namespace Hangman
             while (gameEnd == 0 && lifes > 0);
 
             watch.Stop();
+            TimeSpan ts = watch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            
+            
             if (lifes == 0)
             {
 
@@ -145,24 +149,9 @@ namespace Hangman
             }
 
             Console.WriteLine("What's your name");
-            Score results = new Score();
-            results.setScore("lol", "lol2", 2, 0b10);
+            string results = Console.ReadLine() + " " + DateTime.Now.ToString("MMM d ddd h:mm:ss tt") + " " + elapsedTime + " " + lifes + " lifes left";
+            Console.WriteLine("Thanks for playing");
 
-
-
-
-            Console.WriteLine("You want to play again ?");
-            guessWord = Console.ReadLine();
-
-
-            if (string.Equals(guessWord.ToUpper(), "YES"))
-            {
-
-                goto Outer;
-            }
-
-
-            Console.WriteLine("Goodbye");
             return results;
         }
 

@@ -11,11 +11,11 @@ namespace Hangman
                             
     
 
-        
-           Score toAdd = Game.newGame();
+            string toAdd = Game.newGame(5);
 
-            // Console.WriteLine(toAdd.ToString);
+            Console.WriteLine(toAdd);
             
+            Console.ReadLine();
 
             
 

@@ -28,9 +28,7 @@ public class Score
         return lifes;
     }
 
-    public override string ToString() {
-        return playerNick + " " + dateOfGame + " " + timeOfGame + " " + lifes;
-    }
+
 
     }
  }
