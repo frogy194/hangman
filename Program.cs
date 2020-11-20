@@ -9,8 +9,7 @@ namespace Hangman
         {
   
          string fileName = @"highscores.txt";
-
-        string again = "no";
+         string again = "no";
         
 
         do {
@@ -19,12 +18,14 @@ namespace Hangman
             {
                 string toAdd = Game.newGame(5);
             
-            
-                using (StreamWriter fileStr = File.CreateText(fileName)) 
-                {
-                    fileStr.WriteLine(toAdd);
-                
-                }	            			
+                // }	  
+                if (!(toAdd == null)) {
+                    using (FileStream fileStream = new FileStream(fileName, FileMode.Append, FileAccess.Write))
+                    using (StreamWriter sw = new StreamWriter(fileStream))
+                    {
+                    sw.WriteLine(toAdd);
+                    } 
+                }			
             }
             catch (Exception MyExcep)
             {
