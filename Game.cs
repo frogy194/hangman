@@ -186,7 +186,7 @@ namespace Hangman
             if (lifes > 0) {
              
                 Console.WriteLine("What's your name");
-                string results = Console.ReadLine() + " " + DateTime.Now.ToString("MMM d ddd h:mm:ss tt") + " " + elapsedTime + " " + cityToGuess;
+                string results = elapsedTime + " " + Console.ReadLine() + " " + DateTime.Now.ToString("MMM d ddd h:mm:ss tt") + " " + lifes + " lifes " + cityToGuess;
                 Console.WriteLine("Thanks for playing");
                 return results;
             } 
