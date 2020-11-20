@@ -53,6 +53,8 @@ namespace Hangman
                 do
                 {
 
+                    
+
                     for (int i = 0; i < cityToGuess.Length; i++)
                     {
 
@@ -69,6 +71,10 @@ namespace Hangman
                         }
                     }
 
+                     if (lifes < 3) {
+                        Console.WriteLine();
+                        Console.WriteLine("Tip: Capital of " + country);
+                    }
 
 
                     for (int i = 0; i < cityToGuess.Length; i++)
@@ -153,10 +159,6 @@ namespace Hangman
                         Console.WriteLine("I dont understand you");
                     }
 
-                    if (lifes < 3) {
-                        Console.WriteLine("Tip: Capital of " + country);
-                    }
-
 
                 }
 
@@ -171,12 +173,14 @@ namespace Hangman
                 {
 
                     Console.WriteLine("You lost, word you were looking for was " + cityToGuess);
+                    Console.WriteLine("It took you  " + elapsedTime + " and " + guessingTries + " tries");
                 }
 
                 else
                 {
 
                     Console.WriteLine("You won, word you were looking for was " + cityToGuess);
+                    Console.WriteLine("It took you  " + elapsedTime + " and " + guessingTries + " tries");
             }
         // }    
             if (lifes > 0) {
