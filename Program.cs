@@ -41,8 +41,12 @@ namespace Hangman
         while (again.ToUpper() == "YES");
 
         
-        Console.WriteLine(Highscore.top10());
-            
+        for (int i = 0; i < 9; i++) {
+
+            Console.WriteLine(Highscore.top10()[i]);
+        }
+
+         Console.ReadLine();   
 
 
         }
